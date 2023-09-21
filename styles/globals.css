@@ -61,7 +61,7 @@ body {
 
 /* Gradient */
 
-.gradient{
+.bg-gradient{
     @apply bg-gradient-to-r from-red to-green
 }
 
