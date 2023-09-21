@@ -1,10 +1,21 @@
 const Home = () => {
   return (
-    <div>
-      <h1 className="text-3xl font-bold underline">
-        Hello world!
-      </h1>
-    </div>
+    <main className="container pt-8 grow flex flex-col justify-between">
+      <div className="">
+        <h1>
+
+        </h1>
+        <p>
+
+        </p>
+        <button>
+
+        </button>
+      </div>
+      <div>
+
+      </div>
+    </main>
   )
 }
 
