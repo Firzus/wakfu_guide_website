@@ -1,6 +1,6 @@
 const Loader = () => {
     return (
-        <span className="loader" />
+        <span className="loader m-auto" />
     )
 }
 
