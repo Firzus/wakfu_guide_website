@@ -2,7 +2,9 @@ import React from 'react'
 
 const Guides = () => {
     return (
-        <div>Guides</div>
+        <section>
+            Guides
+        </section>
     )
 }
 
