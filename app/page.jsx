@@ -8,18 +8,17 @@ import Button from "@components/Button"
 import Illustration from "@public/images/illustration.png"
 
 const Home = () => {
-
   const linkDiscoverdWakfu = "https://youtu.be/MOnP3z6TsPw?si=6GAJ1RvrxFpw4rtX";
 
   return (
-    <main className="container columns-4 pt-8 grow flex flex-col justify-between gap-4">
+    <main className="container pt-8 grow flex flex-col justify-between gap-4">
       <div className="flex flex-col gap-4">
-        <header className="flex flex-col gap-2 w-">
-          <h1 className="title">
-            Wakfu Guide
+        <header className="flex flex-col gap-2">
+          <h1 className="title text-white-100 capitalize">
+            wakfu guide
           </h1>
 
-          <p className="small text-white-300">
+          <p className="small text-white-300 w-3/4">
             La référence en tutoriels, astuces et guides sur Wakfu et sa commauté.
           </p>
         </header>

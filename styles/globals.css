@@ -2,17 +2,25 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities {
+    @variants responsive {
+      /* Hide scrollbar for Chrome, Safari and Opera */
+      .no-scrollbar::-webkit-scrollbar {
+          display: none;
+      }
+
+      /* Hide scrollbar for IE, Edge and Firefox */
+      .no-scrollbar {
+          -ms-overflow-style: none;  /* IE and Edge */
+          scrollbar-width: none;  /* Firefox */
+      }
+    }
+}
+
 /* Default */
 
 body {
     @apply flex flex-col bg-black-800 min-h-screen;
-}
-
-.side-bar-pos{
-    height:calc(100% - 3rem);
-    position: absolute;
-    top: 3rem;
-    right: 0;
 }
 
 .side-shadow{
@@ -22,19 +30,15 @@ body {
 /* Font */
 
 .title {
-    @apply text-2xl text-white-100 font-bold capitalize
+    @apply text-2xl font-bold
 }
 
 .subtitle_1 {
-    @apply text-xl text-white-100 font-semibold capitalize
+    @apply text-xl font-semibold
 }
 
 .subtitle_2 {
-    @apply text-lg text-white-100 font-semibold capitalize
-}
-
-.base{
-    @apply text-base
+    @apply text-lg font-semibold
 }
 
 .small{
@@ -43,10 +47,6 @@ body {
 
 .extra_small{
     @apply text-xs font-light
-}
-
-.navigation {
-    @apply text-white-200 uppercase
 }
 
 /* Element */
@@ -61,7 +61,7 @@ body {
 
 /* Gradient */
 
-.bg-gradient{
+.gradient{
     @apply bg-gradient-to-r from-red to-green
 }
 
@@ -69,7 +69,7 @@ body {
 
 .loader {
     @apply relative w-[78px] h-[78px] overflow-hidden rounded-[50%] border-8 border-solid border-black-700 after:content-[''] after:absolute after:w-full after:h-full after:z-[5] after:box-border after:animate-[eyeShade_3s_infinite] after:border-b-8 after:border-b-black-900 after:border-solid after:left-0 after:-top-2/4 before:content-[''] before:absolute before:w-8 before:z-[2] before:h-8 before:animate-[eyeMove_3s_infinite] before:rounded-[50%] before:left-5 before:bottom-[15px];
-    @apply bg-red
+    @apply gradient
 }
 
 .loader::after {

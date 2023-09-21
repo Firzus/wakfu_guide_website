@@ -26,42 +26,43 @@ const Nav = () => {
     });
 
     return (
-        <main className='flex justify-between items-center bg-black-900'>
-            <Link href="/" className='flex w-12 h-12'>
-                <Image
-                    src={Logo}
-                    alt='Wakfu Guide Logo'
-                    width={32}
-                    height={48}
-                    className='mx-auto'
-                />
-            </Link>
+        <>
+            <main className='flex justify-between items-center bg-black-900'>
+                <Link href="/" className='flex w-12 h-12'>
+                    <Image
+                        src={Logo}
+                        alt='Wakfu Guide Logo'
+                        width={32}
+                        height={48}
+                        className='mx-auto'
+                    />
+                </Link>
 
-            <div
-                onClick={() => { setNavOpen(!isNavOpen) }}
-                className='flex w-12 h-12'
-            >
-                <Image
-                    src={IconDropdown}
-                    alt='Open Side Bar'
-                    width={32}
-                    height={32}
-                    className='mx-auto'
-                />
-            </div>
+                <div
+                    onClick={() => { setNavOpen(!isNavOpen) }}
+                    className='flex w-12 h-12'
+                >
+                    <Image
+                        src={IconDropdown}
+                        alt='Open Side Bar'
+                        width={32}
+                        height={32}
+                        className='mx-auto'
+                    />
+                </div>
+            </main>
 
             {isNavOpen &&
-                <>
-                    <div className='side-bar-pos bg-black-900 w-full opacity-60' />
+                <section className='z-50'>
+                    <div className='fixed h-full top-0 left-0 bg-black-900 w-full opacity-60' />
 
                     <SideBar
                         navbarRef={navbarRef}
                         handleNavLinkClick={() => { setNavOpen(false) }}
                     />
-                </>
+                </section>
             }
-
-        </main>
+        </>
     )
 }
 

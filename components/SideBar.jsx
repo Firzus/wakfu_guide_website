@@ -12,16 +12,16 @@ import IconStuff from '@public/icons/stuff.svg'
 
 const SideBar = ({ navbarRef, handleNavLinkClick }) => {
     return (
-        <main ref={navbarRef} className='side-bar-pos w-64 bg-black-700 flex flex-col justify-between side-shadow'>
+        <main ref={navbarRef} className='fixed h-full top-0 right-0 w-64 bg-black-700 flex flex-col justify-between side-shadow'>
             <header className='flex flex-col items-center gap-8 pt-8'>
-                <p className='subtitle_1'>
+                <h3 className='subtitle_2 text-white-100 capitalize'>
                     Wakfu Guide
-                </p>
+                </h3>
 
                 <nav onClick={handleNavLinkClick} className='w-full flex flex-col'>
                     <Link href="/" className='flex items-center justify-end gap-10 py-4' >
                         <div className='flex items-center gap-4'>
-                            <p className='navigation'>
+                            <p className='text-base uppercase text-white-200'>
                                 accueil
                             </p>
 
@@ -38,7 +38,7 @@ const SideBar = ({ navbarRef, handleNavLinkClick }) => {
 
                     <Link href="/guides" className='flex items-center justify-end gap-10 py-4'>
                         <div className='flex items-center gap-4'>
-                            <p className='navigation'>
+                            <p className='text-base uppercase text-white-200'>
                                 guides
                             </p>
 
@@ -55,7 +55,7 @@ const SideBar = ({ navbarRef, handleNavLinkClick }) => {
 
                     <Link href="/donjons" className='flex items-center justify-end gap-10 py-4'>
                         <div className='flex items-center gap-4'>
-                            <p className='navigation'>
+                            <p className='text-base uppercase text-white-200'>
                                 donjons
                             </p>
 
@@ -72,7 +72,7 @@ const SideBar = ({ navbarRef, handleNavLinkClick }) => {
 
                     <Link href="/stuffs" className='flex items-center justify-end gap-10 py-4'>
                         <div className='flex items-center gap-4'>
-                            <p className='navigation'>
+                            <p className='text-base uppercase text-white-200'>
                                 équipements
                             </p>
 

@@ -15,8 +15,19 @@ const Button = ({
         }
     }
 
+    const setColor = () => {
+        switch (color) {
+            case 'green':
+                return 'bg-green';
+            case 'red':
+                return 'bg-red';
+            case 'gradient':
+                return 'gradient';
+        }
+    }
+
     return (
-        <button className={`bg-${color} ${setSize()} uppercase text-white-200 tracking-widest text-base rounded-full`}>
+        <button className={`${setColor()} ${setSize()} uppercase text-white-200 tracking-widest text-base rounded-full`}>
             {label}
         </button >
     )
