@@ -62,7 +62,7 @@ const Guides = () => {
 
             <div className='bg-white-100 opacity-20 h-[1px]' />
 
-            <section className='grid gap-2'>
+            <section className='grid gap-y-4'>
 
                 <Link href="/" className='bg-black-700 flex flex-col w-full sm:w-1/2 rounded overflow-hidden'>
                     <Image
@@ -71,7 +71,7 @@ const Guides = () => {
                         className='object-cover h-24'
                     />
 
-                    <main className='flex flex-col pl-4 py-4 gap-y-4'>
+                    <main className='flex flex-col pl-4 py-4 gap-2'>
                         <h2 className='pr-4 subtitle_2 text-white-100'>
                             Lizard
                         </h2>
@@ -108,44 +108,7 @@ const Guides = () => {
                         className='object-cover h-24'
                     />
 
-                    <main className='flex flex-col pl-4 py-4 gap-y-4'>
-                        <h2 className='pr-4 subtitle_2 text-white-100'>
-                            Lizard
-                        </h2>
-
-                        <ul className='flex items-center whitespace-nowrap gap-1 overflow-x-scroll no-scrollbar'>
-                            <li className='snap-center extra_small uppercase text-center text-white-300 bg-black-900 px-2 py-1 rounded-full'>
-                                HAVRE-MONDE
-                            </li>
-
-                            <li className='snap-center extra_small uppercase text-center text-white-300 bg-black-900 px-2 py-1 rounded-full'>
-                                HAVRE-MONDE
-                            </li>
-
-                            <li className='snap-center extra_small uppercase text-center text-white-300 bg-black-900 px-2 py-1 rounded-full'>
-                                HAVRE-MONDE
-                            </li>
-
-                            <li className='snap-center extra_small uppercase text-center text-white-300 bg-black-900 px-2 py-1 rounded-full'>
-                                HAVRE-MONDE
-                            </li>
-                        </ul>
-
-                        <p className='pr-4 extra_small text-white-200'>
-                            Lizards are a widespread group of squamate reptiles, with over 6,000
-                            species, ranging across all continents except Antarctica.
-                        </p>
-                    </main>
-                </Link>
-
-                <Link href="/" className='bg-black-700 flex flex-col w-full sm:w-1/2 rounded overflow-hidden'>
-                    <Image
-                        src={ImgTest}
-                        alt='Img Test'
-                        className='object-cover h-24'
-                    />
-
-                    <main className='flex flex-col pl-4 py-4 gap-y-4'>
+                    <main className='flex flex-col pl-4 py-4 gap-2'>
                         <h2 className='pr-4 subtitle_2 text-white-100'>
                             Lizard
                         </h2>
