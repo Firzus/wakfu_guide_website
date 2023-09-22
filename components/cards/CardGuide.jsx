@@ -1,6 +1,9 @@
 import Image from 'next/image'
 import Link from 'next/link'
 
+// Dev Only
+const localImg = "http://127.0.0.1:1337"
+
 const CardGuide = ({
     link,
     title,
@@ -8,15 +11,19 @@ const CardGuide = ({
     tags = [],
     image: {
         src,
-        alt
+        alt,
+        width,
+        height
     }
 }) => {
     return (
         <Link href={link} className='bg-black-700 flex flex-col w-full sm:w-1/2 rounded overflow-hidden'>
             <Image
-                src={src}
+                className='object-cover h-24 w-full'
+                src={localImg + src}
                 alt={alt}
-                className='object-cover h-24'
+                width={width}
+                height={height}
             />
 
             <main className='flex flex-col pl-4 py-4 gap-2'>

@@ -1,5 +1,3 @@
-import React from 'react'
-
 import Image from 'next/image'
 
 // Components
@@ -12,26 +10,27 @@ import Arrow from '@public/icons/arrow.svg'
 // - Test
 import ImgTest from '@public/images/wakfu_server.jpeg'
 
+const localLink = "http://127.0.0.1:1337/api/guides?populate=*"
+
 const titleTest = "Title";
 const imgSrc = ImgTest;
 const imgAlt = "Alt Test"
 const descriptionTest = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic quae sit itaque.";
 const tagsTest = ['TAG 1', 'TAG 2', 'TAG 3', 'TAG 4'];
 
-async function getData() {
-    const res = await fetch('localhost:1337/api/guides');
-    // http://localhost:1337/api/guides?populate=*
+async function getGuides() {
+    const response = await fetch(localLink, { cache: "no-cache" });
 
-    if (!res.ok) {
-        throw new Error('Failed to fetch data');
+    if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
     }
 
-    return res.json();
+    return await response.json();
 }
 
 export default async function Guides() {
-    const data = await getData();
-    const task = data.data;
+    const { data: guides } = await getGuides();
+    // console.log(guides);
 
     return (
         <main className='container pt-8 pb-4 flex flex-col gap-4'>
@@ -67,6 +66,7 @@ export default async function Guides() {
                     <SearchBar />
                 </div>
 
+                {/* Active TAGS */}
                 <ul className='flex items-center gap-1 whitespace-nowrap overflow-x-scroll no-scrollbar'>
                     <li className='extra_small uppercase text-center text-white-300 bg-black-900 px-2 py-1 rounded-full'>
                         HAVRE-MONDE
@@ -85,48 +85,59 @@ export default async function Guides() {
 
             <div className='bg-white-100 opacity-20 h-[1px]' />
 
+            {/* <section className='grid gap-y-4'>
+                <CardGuide
+                    link="/"
+                    image={{
+                        src: imgSrc,
+                        alt: imgAlt
+                    }}
+                    title={titleTest}
+                    description={descriptionTest}
+                    tags={tagsTest}
+                />
+
+                <CardGuide
+                    link="/"
+                    image={{
+                        src: imgSrc,
+                        alt: imgAlt
+                    }}
+                    title={titleTest}
+                    description={descriptionTest}
+                    tags={tagsTest}
+                />
+
+                <CardGuide
+                    link="/"
+                    image={{
+                        src: imgSrc,
+                        alt: imgAlt
+                    }}
+                    title={titleTest}
+                    description={descriptionTest}
+                    tags={tagsTest}
+                />
+            </section> */}
+
             <section className='grid gap-y-4'>
-                <CardGuide
-                    link="/"
-                    image={{
-                        src: imgSrc,
-                        alt: imgAlt
-                    }}
-                    title={titleTest}
-                    description={descriptionTest}
-                    tags={tagsTest}
-                />
-
-                <CardGuide
-                    link="/"
-                    image={{
-                        src: imgSrc,
-                        alt: imgAlt
-                    }}
-                    title={titleTest}
-                    description={descriptionTest}
-                    tags={tagsTest}
-                />
-
-                <CardGuide
-                    link="/"
-                    image={{
-                        src: imgSrc,
-                        alt: imgAlt
-                    }}
-                    title={titleTest}
-                    description={descriptionTest}
-                    tags={tagsTest}
-                />
-            </section>
-
-            <section>
-                {task.map(task => (
-                    <div key={task.id}>
-                        <h2>{task.attributes.titre}</h2>
-                    </div>
+                {guides.map(guide => (
+                    <CardGuide
+                        key={guide.id}
+                        link={/guides/ + guide.id}
+                        image={{
+                            src: guide.attributes.illustration.data.attributes.url,
+                            alt: guide.attributes.illustration.data.attributes.alternativeText,
+                            width: guide.attributes.illustration.data.attributes.width,
+                            height: guide.attributes.illustration.data.attributes.height
+                        }}
+                        title={guide.attributes.titre}
+                        description={guide.attributes.description}
+                        tags={guide.attributes.tags.data.map(tag => tag.attributes.label)}
+                    />
                 ))}
             </section>
+
         </main>
     );
 }
