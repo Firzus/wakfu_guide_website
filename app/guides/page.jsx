@@ -1,15 +1,15 @@
 import React from 'react'
 
 import Image from 'next/image'
-import Link from 'next/link'
 
 // Components
 import CardGuide from '@components/cards/CardGuide'
+import SearchBar from '@components/SearchBar'
 
 // Asset
 import Arrow from '@public/icons/arrow.svg'
 
-// - test
+// - Test
 import ImgTest from '@public/images/wakfu_server.jpeg'
 
 const titleTest = "Title";
@@ -18,7 +18,21 @@ const imgAlt = "Alt Test"
 const descriptionTest = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic quae sit itaque.";
 const tagsTest = ['TAG 1', 'TAG 2', 'TAG 3', 'TAG 4'];
 
-const Guides = () => {
+async function getData() {
+    const res = await fetch('localhost:1337/api/guides');
+    // http://localhost:1337/api/guides?populate=*
+
+    if (!res.ok) {
+        throw new Error('Failed to fetch data');
+    }
+
+    return res.json();
+}
+
+export default async function Guides() {
+    const data = await getData();
+    const task = data.data;
+
     return (
         <main className='container pt-8 pb-4 flex flex-col gap-4'>
             <nav className='flex items-center gap-1'>
@@ -50,7 +64,7 @@ const Guides = () => {
 
             <section className='flex flex-col gap-2'>
                 <div className='flex items-center w-full h-8 bg-black-900'>
-
+                    <SearchBar />
                 </div>
 
                 <ul className='flex items-center gap-1 whitespace-nowrap overflow-x-scroll no-scrollbar'>
@@ -66,12 +80,12 @@ const Guides = () => {
                         pvp
                     </li>
                 </ul>
+
             </section>
 
             <div className='bg-white-100 opacity-20 h-[1px]' />
 
             <section className='grid gap-y-4'>
-
                 <CardGuide
                     link="/"
                     image={{
@@ -104,10 +118,15 @@ const Guides = () => {
                     description={descriptionTest}
                     tags={tagsTest}
                 />
+            </section>
 
+            <section>
+                {task.map(task => (
+                    <div key={task.id}>
+                        <h2>{task.attributes.titre}</h2>
+                    </div>
+                ))}
             </section>
         </main>
-    )
+    );
 }
-
-export default Guides
