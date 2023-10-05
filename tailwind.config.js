@@ -12,9 +12,12 @@ module.exports = {
         DEFAULT: '0.75rem',
         // sm: '2rem',
         // lg: '4rem',
-        xl: '37.5rem',
-        '2xl': '6rem',
+        xl: '5rem',
+        //'2xl': '6rem',
       },
+    },
+    fontFamily: {
+      'sans': ['Poppins', 'Helvetica', 'Arial', 'sans-serif'],
     },
     fontSize: {
       xs: ['0.75rem', '0.9rem '],
