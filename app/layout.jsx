@@ -1,12 +1,7 @@
 import '@styles/globals.css'
-import Nav from '@components/Nav';
-import { Poppins } from "next/font/google"
-import Footer from '@components/Footer';
 
-const poppins = Poppins({
-  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
-  subsets: ['latin'],
-})
+import Nav from '@components/Nav';
+import Footer from '@components/Footer';
 
 export const metadata = {
   title: 'Wakfu Guide',
@@ -16,7 +11,7 @@ export const metadata = {
 const RootLayout = ({ children }) => {
   return (
     <html lang='fr'>
-      <body className={poppins.className}>
+      <body>
         <Nav />
         {children}
         <Footer />

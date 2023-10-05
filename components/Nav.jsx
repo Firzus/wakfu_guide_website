@@ -34,17 +34,39 @@ const Nav = () => {
 
     return (
         <main className='flex justify-between items-center bg-black-900'>
+
+            <>
             <Link href="/">
                 <Image
-                    className='mx-2 xl:mx-6 w-8 xl:w-12 h-12 xl:h-20'
+                    className='mx-2 2xl:mx-6 w-8 2xl:w-12 h-12 2xl:h-20'
                     src={Logo}
                     alt='Wakfu Guide Logo'
                 />
             </Link>
 
+            <li className='hidden 2xl:flex ml-24 mr-auto gap-12'>
+                <Link href="/" className='base uppercase text-white-200'>
+                    accueil
+                </Link>
+
+                <Link href="/guides" className='base uppercase text-white-200'>
+                    guides
+                </Link>
+
+                <Link href="/donjons" className='base uppercase text-white-200'>
+                    donjons
+                </Link>
+
+                <Link href="/equipements" className='base uppercase text-white-200'>
+                    équipements
+                </Link>
+            </li>
+            </>
+
+            <>
             <div
                 onClick={() => { setNavOpen(!isNavOpen) }}
-                className='flex xl:hidden w-12 h-12'
+                className='flex 2xl:hidden w-12 h-12'
             >
                 <Image
                     className='mx-auto'
@@ -55,7 +77,7 @@ const Nav = () => {
                 />
             </div>
 
-            <ul className='hidden xl:flex gap-8 pr-6'>
+            <ul className='hidden 2xl:flex gap-8 pr-6'>
                 <Link href={linkTwitter}>
                     <Image
                         className='w-8 h-8'
@@ -80,7 +102,7 @@ const Nav = () => {
                     />
                 </Link>
             </ul>
-
+            </>
 
             {isNavOpen &&
                 <>
