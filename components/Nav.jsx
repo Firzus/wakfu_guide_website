@@ -53,14 +53,10 @@ const Nav = () => {
             </main>
 
             {isNavOpen &&
-                <section className='z-50'>
-                    <div className='fixed h-full top-0 left-0 bg-black-900 w-full opacity-60' />
-
-                    <SideBar
-                        navbarRef={navbarRef}
-                        handleNavLinkClick={() => { setNavOpen(false) }}
-                    />
-                </section>
+                <SideBar
+                    navbarRef={navbarRef}
+                    handleNavLinkClick={() => { setNavOpen(false) }}
+                />
             }
         </>
     )

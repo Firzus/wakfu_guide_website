@@ -7,19 +7,21 @@ import SearchBar from '@components/SearchBar'
 // Asset
 import Arrow from '@public/icons/arrow.svg'
 
-// - Test
-import ImgTest from '@public/images/wakfu_server.jpeg'
-
-const localLink = "http://127.0.0.1:1337/api/guides?populate=*"
-
-const titleTest = "Title";
-const imgSrc = ImgTest;
-const imgAlt = "Alt Test"
-const descriptionTest = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic quae sit itaque.";
-const tagsTest = ['TAG 1', 'TAG 2', 'TAG 3', 'TAG 4'];
+const localLinkGuides = "http://127.0.0.1:1337/api/guides?populate=*"
+const localLinkTags = "http://127.0.0.1:1337/api/tags"
 
 async function getGuides() {
-    const response = await fetch(localLink, { cache: "no-cache" });
+    const response = await fetch(localLinkGuides);
+
+    if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+
+    return await response.json();
+}
+
+async function getTags() {
+    const response = await fetch(localLinkTags);
 
     if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
@@ -30,7 +32,8 @@ async function getGuides() {
 
 export default async function Guides() {
     const { data: guides } = await getGuides();
-    // console.log(guides);
+    const { data: tags } = await getTags();
+    // console.log(tags);
 
     return (
         <main className='container pt-8 pb-4 flex flex-col gap-4'>
@@ -61,64 +64,28 @@ export default async function Guides() {
                 </p>
             </header>
 
-            <section className='flex flex-col gap-2'>
-                <div className='flex items-center w-full h-8 bg-black-900'>
-                    <SearchBar />
+            {/* FILTERS */}
+
+            {/* <section className='flex flex-col gap-2'>
+                <div className='flex items-center gap-2'>
+
+                    <section className='bg-green grow h-full rounded-full'>
+                        rechercher
+                    </section>
+
+                    <TagsDropdown tags={tags} currentActiveTags={currentActiveTags} onTagChange={handleTagChange} />
                 </div>
 
-                {/* Active TAGS */}
                 <ul className='flex items-center gap-1 whitespace-nowrap overflow-x-scroll no-scrollbar'>
-                    <li className='extra_small uppercase text-center text-white-300 bg-black-900 px-2 py-1 rounded-full'>
-                        HAVRE-MONDE
-                    </li>
-
-                    <li className='extra_small uppercase text-center text-white-300 bg-black-900 px-2 py-1 rounded-full'>
-                        pvm
-                    </li>
-
-                    <li className='extra_small uppercase text-center text-white-300 bg-black-900 px-2 py-1 rounded-full'>
-                        pvp
-                    </li>
+                    {currentActiveTags.map(tag => (
+                        <li className='extra_small uppercase text-center text-white-300 bg-black-900 px-2 py-1 rounded-full' key={tag.id}>
+                            {tag.attributes.label}
+                        </li>
+                    ))}
                 </ul>
-
-            </section>
-
-            <div className='bg-white-100 opacity-20 h-[1px]' />
-
-            {/* <section className='grid gap-y-4'>
-                <CardGuide
-                    link="/"
-                    image={{
-                        src: imgSrc,
-                        alt: imgAlt
-                    }}
-                    title={titleTest}
-                    description={descriptionTest}
-                    tags={tagsTest}
-                />
-
-                <CardGuide
-                    link="/"
-                    image={{
-                        src: imgSrc,
-                        alt: imgAlt
-                    }}
-                    title={titleTest}
-                    description={descriptionTest}
-                    tags={tagsTest}
-                />
-
-                <CardGuide
-                    link="/"
-                    image={{
-                        src: imgSrc,
-                        alt: imgAlt
-                    }}
-                    title={titleTest}
-                    description={descriptionTest}
-                    tags={tagsTest}
-                />
             </section> */}
+
+            <hr className="separator" />
 
             <section className='grid gap-y-4'>
                 {guides.map(guide => (

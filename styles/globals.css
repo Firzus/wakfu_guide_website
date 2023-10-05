@@ -27,6 +27,15 @@ body {
     box-shadow: -4px 0px 10px 0px rgba(0, 0, 0, 0.20)
 }
 
+.separator{
+    @apply border-white-100 w-full border opacity-10 rounded-full
+}
+
+.active-page{
+    @apply w-1 h-full bg-red
+}
+
+
 /* Font */
 
 .title {
@@ -47,16 +56,6 @@ body {
 
 .extra_small{
     @apply text-xs font-light
-}
-
-/* Element */
-
-.w-bar{
-    @apply w-full h-[0.0625rem] bg-white-100 opacity-20
-}
-
-.active-page{
-    @apply w-1 h-full bg-red
 }
 
 /* Gradient */
