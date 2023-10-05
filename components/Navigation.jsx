@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, useState } from 'react';
+import { usePathname } from 'next/navigation'
 
 import Link from 'next/link'
 import Image from 'next/image'
@@ -18,10 +19,15 @@ import IconTwitch from '@public/icons/twitch.svg'
 import IconYoutube from '@public/icons/youtube.svg'
 import IconTwitter from '@public/icons/twitter.svg'
 
-const Nav = () => {
+const Navigation = () => {
     const linkTwitter = "https://twitter.com/Nozadah";
     const linkTwitch = "https://www.twitch.tv/nozadah";
     const linkYoutube = "https://www.youtube.com/@Nozadah";
+
+    const linkHome = "/";
+    const linkGuides = "/guides";
+    const linkDonjons = "/donjons";
+    const linkEquipements = "/equipements";
 
     const [isNavOpen, setNavOpen] = useState(false);
     const navbarRef = useRef(null);
@@ -32,9 +38,15 @@ const Nav = () => {
         }
     });
 
+    const pathname = usePathname()
+
+    const isLinkActive = (path) => {
+        return path === pathname;
+    };
+
     return (
         <main className='flex justify-between items-center bg-black-900'>
-            <Link href="/">
+            <Link href={linkHome}>
                 <Image
                     className='mx-2 2xl:mx-6 w-8 2xl:w-12 h-12 2xl:h-20'
                     src={Logo}
@@ -43,20 +55,28 @@ const Nav = () => {
             </Link>
 
             <li className='hidden 2xl:flex ml-24 mr-auto gap-12'>
-                <Link href="/" className='base uppercase text-white-200'>
-                    accueil
+                <Link href={linkHome} className='relative base uppercase text-white-200'>
+                    <p>accueil</p>
+
+                    {isLinkActive(linkHome) && <span className='block h-1 mt-1 bg-red' />}
                 </Link>
 
-                <Link href="/guides" className='base uppercase text-white-200'>
-                    guides
+                <Link href={linkGuides} className='relative base uppercase text-white-200'>
+                    <p>guides</p>
+
+                    {isLinkActive(linkGuides) && <span className='block h-1 mt-1 bg-red' />}
                 </Link>
 
-                <Link href="/donjons" className='base uppercase text-white-200'>
-                    donjons
+                <Link href={linkDonjons} className='relative base uppercase text-white-200'>
+                    <p>donjons</p>
+
+                    {isLinkActive(linkDonjons) && <span className='block h-1 mt-1 bg-red' />}
                 </Link>
 
-                <Link href="/equipements" className='base uppercase text-white-200'>
-                    équipements
+                <Link href={linkEquipements} className='relative base uppercase text-white-200'>
+                    <p>équipements</p>
+
+                    {isLinkActive(linkEquipements) && <span className='block h-1 mt-1 bg-red' />}
                 </Link>
             </li>
 
@@ -74,7 +94,7 @@ const Nav = () => {
             </div>
 
             <ul className='hidden 2xl:flex gap-8 pr-6'>
-                <Link href={linkTwitter} className='hover:scale-125'>
+                <Link href={linkTwitter} target="_blank" className='hover:scale-125 transition duration-300 ease-in-out'>
                     <Image
                         className='w-8 h-8'
                         src={IconTwitter}
@@ -82,7 +102,7 @@ const Nav = () => {
                     />
                 </Link>
 
-                <Link href={linkTwitch} className='hover:scale-125'>
+                <Link href={linkTwitch} target="_blank" className='hover:scale-125 transition duration-300 ease-in-out'>
                     <Image
                         className='w-8 h-8'
                         src={IconTwitch}
@@ -90,7 +110,7 @@ const Nav = () => {
                     />
                 </Link>
 
-                <Link href={linkYoutube} className='hover:scale-125'>
+                <Link href={linkYoutube} target="_blank" className='hover:scale-125 transition duration-300 ease-in-out'>
                     <Image
                         className='w-8 h-8'
                         src={IconYoutube}
@@ -114,4 +134,4 @@ const Nav = () => {
     )
 }
 
-export default Nav
+export default Navigation
