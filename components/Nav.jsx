@@ -14,8 +14,15 @@ import useOutsideClick from '@utils/useOutsideClick'
 // Data
 import Logo from '@public/icons/logo.svg'
 import IconDropdown from '@public/icons/dropdown.svg'
+import IconTwitch from '@public/icons/twitch.svg'
+import IconYoutube from '@public/icons/youtube.svg'
+import IconTwitter from '@public/icons/twitter.svg'
 
 const Nav = () => {
+    const linkTwitter = "https://twitter.com/Nozadah";
+    const linkTwitch = "https://www.twitch.tv/nozadah";
+    const linkYoutube = "https://www.youtube.com/@Nozadah";
+
     const [isNavOpen, setNavOpen] = useState(false);
     const navbarRef = useRef(null);
 
@@ -37,7 +44,7 @@ const Nav = () => {
 
             <div
                 onClick={() => { setNavOpen(!isNavOpen) }}
-                className='flex w-12 h-12'
+                className='flex xl:hidden w-12 h-12'
             >
                 <Image
                     className='mx-auto'
@@ -47,6 +54,33 @@ const Nav = () => {
                     height={32}
                 />
             </div>
+
+            <ul className='hidden xl:flex gap-8 pr-6'>
+                <Link href={linkTwitter}>
+                    <Image
+                        className='w-8 h-8'
+                        src={IconTwitter}
+                        alt='Lien Twitter Nozadah'
+                    />
+                </Link>
+
+                <Link href={linkTwitch}>
+                    <Image
+                        className='w-8 h-8'
+                        src={IconTwitch}
+                        alt='Lien Twitch Nozadah'
+                    />
+                </Link>
+
+                <Link href={linkYoutube}>
+                    <Image
+                        className='w-8 h-8'
+                        src={IconYoutube}
+                        alt='Lien Youtube Nozadah'
+                    />
+                </Link>
+            </ul>
+
 
             {isNavOpen &&
                 <>
