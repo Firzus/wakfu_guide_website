@@ -34,8 +34,6 @@ const Nav = () => {
 
     return (
         <main className='flex justify-between items-center bg-black-900'>
-
-            <>
             <Link href="/">
                 <Image
                     className='mx-2 2xl:mx-6 w-8 2xl:w-12 h-12 2xl:h-20'
@@ -61,9 +59,7 @@ const Nav = () => {
                     équipements
                 </Link>
             </li>
-            </>
 
-            <>
             <div
                 onClick={() => { setNavOpen(!isNavOpen) }}
                 className='flex 2xl:hidden w-12 h-12'
@@ -78,7 +74,7 @@ const Nav = () => {
             </div>
 
             <ul className='hidden 2xl:flex gap-8 pr-6'>
-                <Link href={linkTwitter}>
+                <Link href={linkTwitter} className='hover:scale-125'>
                     <Image
                         className='w-8 h-8'
                         src={IconTwitter}
@@ -86,7 +82,7 @@ const Nav = () => {
                     />
                 </Link>
 
-                <Link href={linkTwitch}>
+                <Link href={linkTwitch} className='hover:scale-125'>
                     <Image
                         className='w-8 h-8'
                         src={IconTwitch}
@@ -94,7 +90,7 @@ const Nav = () => {
                     />
                 </Link>
 
-                <Link href={linkYoutube}>
+                <Link href={linkYoutube} className='hover:scale-125'>
                     <Image
                         className='w-8 h-8'
                         src={IconYoutube}
@@ -102,7 +98,6 @@ const Nav = () => {
                     />
                 </Link>
             </ul>
-            </>
 
             {isNavOpen &&
                 <>
