@@ -10,12 +10,17 @@ import IconTwitter from '@public/icons/twitter.svg'
 import IconHome from '@public/icons/home.svg'
 import IconGuide from '@public/icons/guide.svg'
 import IconDonjon from '@public/icons/donjon.svg'
-import IconStuff from '@public/icons/stuff.svg'
+import IconEquipement from '@public/icons/stuff.svg'
 
 const SideBar = ({ navbarRef, handleNavLinkClick }) => {
     const linkTwitter = "https://twitter.com/Nozadah";
     const linkTwitch = "https://www.twitch.tv/nozadah";
     const linkYoutube = "https://www.youtube.com/@Nozadah";
+
+    const linkAccueil = "/";
+    const linkGuides = "/guides"
+    const linkDonjons = "/donjons"
+    const linkEquipements = "/equipements"
 
     const pathname = usePathname()
 
@@ -32,72 +37,64 @@ const SideBar = ({ navbarRef, handleNavLinkClick }) => {
                     </p>
 
                     <nav onClick={handleNavLinkClick} className='w-full flex flex-col'>
-                        <Link href="/" className='flex items-center justify-end gap-10 py-4' >
-                            <div className='flex items-center gap-4'>
-                                <p className='navigation'>
-                                    accueil
-                                </p>
+                        <Link href={linkAccueil} className='flex items-center justify-end gap-4 py-4 mr-8' >
+                            <p className='navigation'>
+                                accueil
+                            </p>
 
-                                <Image
-                                    src={IconHome}
-                                    alt='Icone Accueil'
-                                    width={16}
-                                    height={16}
-                                />
-                            </div>
+                            <Image
+                                src={IconHome}
+                                alt='Icone Accueil'
+                                width={16}
+                                height={16}
+                            />
 
-                            {isLinkActive("/") && <div className='w-1 h-full bg-red' />}
+                            {isLinkActive(linkAccueil) && <div className='absolute right-0 w-1 h-4 bg-red' />}
                         </Link>
 
-                        <Link href="/guides" className='flex items-center justify-end gap-10 py-4'>
-                            <div className='flex items-center gap-4'>
-                                <p className='navigation'>
-                                    guides
-                                </p>
+                        <Link href={linkGuides} className='flex items-center justify-end gap-4 py-4 mr-8'>
+                            <p className='navigation'>
+                                guides
+                            </p>
 
-                                <Image
-                                    src={IconGuide}
-                                    alt='Icone Guides'
-                                    width={16}
-                                    height={16}
-                                />
-                            </div>
+                            <Image
+                                src={IconGuide}
+                                alt='Icone Guides'
+                                width={16}
+                                height={16}
+                            />
 
-                            {isLinkActive("/guides") && <div className='' />}
+                            {isLinkActive(linkGuides) && <div className='absolute right-0 w-1 h-4 bg-red' />}
                         </Link>
 
-                        <Link href="/donjons" className='flex items-center justify-end gap-10 py-4'>
-                            <div className='flex items-center gap-4'>
-                                <p className='navigation'>
-                                    donjons
-                                </p>
+                        <Link href={linkDonjons} className='flex items-center justify-end gap-4 py-4 mr-8'>
+                            <p className='navigation'>
+                                donjons
+                            </p>
 
-                                <Image
-                                    src={IconDonjon}
-                                    alt='Icone Donjons'
-                                    width={16}
-                                    height={16}
-                                />
-                            </div>
+                            <Image
+                                src={IconDonjon}
+                                alt='Icone Donjons'
+                                width={16}
+                                height={16}
+                            />
 
-                            {isLinkActive("/donjons") && <div className='active-page' />}
+                            {isLinkActive(linkDonjons) && <div className='absolute right-0 w-1 h-4 bg-red' />}
                         </Link>
 
-                        <Link href="/stuffs" className='flex items-center justify-end gap-10 py-4'>
-                            <div className='flex items-center gap-4'>
-                                <p className='navigation'>
-                                    équipements
-                                </p>
+                        <Link href={linkEquipements} className='flex items-center justify-end gap-4 py-4 mr-8'>
+                            <p className='navigation'>
+                                équipements
+                            </p>
 
-                                <Image
-                                    src={IconStuff}
-                                    alt='Icone Equipements'
-                                    width={16}
-                                    height={16}
-                                />
-                            </div>
+                            <Image
+                                src={IconEquipement}
+                                alt='Icone Equipements'
+                                width={16}
+                                height={16}
+                            />
 
-                            {isLinkActive("/stuffs") && <div className='active-page' />}
+                            {isLinkActive(linkEquipements) && <div className='absolute right-0 w-1 h-4 bg-red' />}
                         </Link>
                     </nav>
                 </header>
@@ -113,7 +110,7 @@ const SideBar = ({ navbarRef, handleNavLinkClick }) => {
                         </p>
                     </div>
 
-                    <hr className='w-bar' />
+                    <div className='w-bar' />
 
                     <div className='flex items-center justify-between'>
                         <Link href={linkYoutube} target='_blank'>

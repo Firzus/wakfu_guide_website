@@ -45,7 +45,7 @@ body {
 /* Element */
 
 .w-bar{
-    @apply w-full h-[0.0625rem] bg-white-100 opacity-20
+    @apply w-full h-[2px] bg-white-100/20
 }
 
 /* Gradient */
