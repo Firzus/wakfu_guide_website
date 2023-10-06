@@ -12,7 +12,7 @@ const Home = () => {
   const linkDiscoverdWakfu = "https://youtu.be/MOnP3z6TsPw?si=6GAJ1RvrxFpw4rtX";
 
   return (
-    <main className="container columns-4 pt-8 grow flex flex-col justify-between gap-4">
+    <main className="pt-8 grow flex flex-col justify-between gap-4">
       <div className="flex flex-col gap-4">
         <header className="flex flex-col gap-2 w-">
           <h1 className="title">
