@@ -13,8 +13,10 @@ const RootLayout = ({ children }) => {
     <html lang='fr'>
       <body>
         <Navigation />
-        {children}
-        <Footer />
+        <main className='container mx-auto px-3 tablet:px-8 laptop:px-0 laptop:w-[1140px] desktop:w-[1440px] laptop:bg-red desktop:bg-green'>
+          {children}
+          <Footer />
+        </main>
       </body>
     </html>
   )

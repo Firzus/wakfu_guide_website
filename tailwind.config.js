@@ -6,15 +6,10 @@ module.exports = {
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    container: {
-      center: true,
-      padding: {
-        DEFAULT: '0.75rem',
-        // sm: '2rem',
-        // lg: '4rem',
-        xl: '5rem',
-        //'2xl': '6rem',
-      },
+    screens: {
+      'tablet': '640px',
+      'laptop': '1024px',
+      'desktop': '1280px'
     },
     fontFamily: {
       'sans': ['Poppins', 'Helvetica', 'Arial', 'sans-serif'],
