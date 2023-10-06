@@ -11,123 +11,132 @@ import IconDonjon from '@public/icons/donjon.svg'
 import IconStuff from '@public/icons/stuff.svg'
 
 const SideBar = ({ navbarRef, handleNavLinkClick }) => {
+    const linkTwitter = "https://twitter.com/Nozadah";
+    const linkTwitch = "https://www.twitch.tv/nozadah";
+    const linkYoutube = "https://www.youtube.com/@Nozadah";
+
     return (
-        <main ref={navbarRef} className='side-bar-pos w-64 bg-black-700 flex flex-col justify-between side-shadow'>
-            <header className='flex flex-col items-center gap-8 pt-8'>
-                <p className='subtitle_1'>
-                    Wakfu Guide
-                </p>
-
-                <nav onClick={handleNavLinkClick} className='w-full flex flex-col'>
-                    <Link href="/" className='flex items-center justify-end gap-10 py-4' >
-                        <div className='flex items-center gap-4'>
-                            <p className='navigation'>
-                                accueil
-                            </p>
-
-                            <Image
-                                src={IconHome}
-                                alt='Icone Accueil'
-                                width={16}
-                                height={16}
-                            />
-                        </div>
-
-                        <hr className='active-page' />
-                    </Link>
-
-                    <Link href="/guides" className='flex items-center justify-end gap-10 py-4'>
-                        <div className='flex items-center gap-4'>
-                            <p className='navigation'>
-                                guides
-                            </p>
-
-                            <Image
-                                src={IconGuide}
-                                alt='Icone Guides'
-                                width={16}
-                                height={16}
-                            />
-                        </div>
-
-                        <hr className='active-page' />
-                    </Link>
-
-                    <Link href="/donjons" className='flex items-center justify-end gap-10 py-4'>
-                        <div className='flex items-center gap-4'>
-                            <p className='navigation'>
-                                donjons
-                            </p>
-
-                            <Image
-                                src={IconDonjon}
-                                alt='Icone Donjons'
-                                width={16}
-                                height={16}
-                            />
-                        </div>
-
-                        <hr className='active-page' />
-                    </Link>
-
-                    <Link href="/stuffs" className='flex items-center justify-end gap-10 py-4'>
-                        <div className='flex items-center gap-4'>
-                            <p className='navigation'>
-                                équipements
-                            </p>
-
-                            <Image
-                                src={IconStuff}
-                                alt='Icone Equipements'
-                                width={16}
-                                height={16}
-                            />
-                        </div>
-
-                        <div className='active-page' />
-                    </Link>
-                </nav>
-            </header>
-
-            <footer className='flex flex-col gap-4 px-8 py-4'>
-                <div className='flex flex-col gap-2 content-end'>
-                    <p className='small text-white-300 text-end'>
-                        Content : @Nozadah
+        <main className='absolute w-full h-screen z-50 top-0 left-0 bg-black-900/75'>
+            <section ref={navbarRef} className='ml-auto w-64 h-full bg-black-700 flex flex-col justify-between side-shadow'>
+                <header className='flex flex-col items-center gap-8 pt-8'>
+                    <p className='subtitle_1'>
+                        Wakfu Guide
                     </p>
-                    <p className='small text-white-300 text-end'>
-                        Design & Code : @Firzus
-                    </p>
-                </div>
 
-                <div className='w-bar' />
+                    <nav onClick={handleNavLinkClick} className='w-full flex flex-col'>
+                        <Link href="/" className='flex items-center justify-end gap-10 py-4' >
+                            <div className='flex items-center gap-4'>
+                                <p className='navigation'>
+                                    accueil
+                                </p>
 
-                <div className='flex items-center justify-between'>
-                    <Link href="https://youtube.com/@Nozadah?si=0zH3JNQ-b6juCCiG">
-                        <Image
-                            src={IconYoutube}
-                            alt='Lien Chaîne Youtube Nozadah'
-                            width={24}
-                            height={24}
-                        />
-                    </Link>
-                    <Link href="https://www.twitch.tv/nozadah">
-                        <Image
-                            src={IconTwitch}
-                            alt='Lien Chaîne Twitch Nozadah'
-                            width={24}
-                            height={24}
-                        />
-                    </Link>
-                    <Link href="https://twitter.com/Nozadah">
-                        <Image
-                            src={IconTwitter}
-                            alt='Lien Twitter Nozadah'
-                            width={24}
-                            height={24}
-                        />
-                    </Link>
-                </div>
-            </footer>
+                                <Image
+                                    src={IconHome}
+                                    alt='Icone Accueil'
+                                    width={16}
+                                    height={16}
+                                />
+                            </div>
+
+                            <hr className='active-page' />
+                        </Link>
+
+                        <Link href="/guides" className='flex items-center justify-end gap-10 py-4'>
+                            <div className='flex items-center gap-4'>
+                                <p className='navigation'>
+                                    guides
+                                </p>
+
+                                <Image
+                                    src={IconGuide}
+                                    alt='Icone Guides'
+                                    width={16}
+                                    height={16}
+                                />
+                            </div>
+
+                            <hr className='active-page' />
+                        </Link>
+
+                        <Link href="/donjons" className='flex items-center justify-end gap-10 py-4'>
+                            <div className='flex items-center gap-4'>
+                                <p className='navigation'>
+                                    donjons
+                                </p>
+
+                                <Image
+                                    src={IconDonjon}
+                                    alt='Icone Donjons'
+                                    width={16}
+                                    height={16}
+                                />
+                            </div>
+
+                            <hr className='active-page' />
+                        </Link>
+
+                        <Link href="/stuffs" className='flex items-center justify-end gap-10 py-4'>
+                            <div className='flex items-center gap-4'>
+                                <p className='navigation'>
+                                    équipements
+                                </p>
+
+                                <Image
+                                    src={IconStuff}
+                                    alt='Icone Equipements'
+                                    width={16}
+                                    height={16}
+                                />
+                            </div>
+
+                            <div className='active-page' />
+                        </Link>
+                    </nav>
+                </header>
+
+                <footer className='flex flex-col gap-4 px-8 py-4'>
+                    <div className='flex flex-col gap-2 content-end'>
+                        <p className='small text-white-300 text-end'>
+                            Content : @Nozadah
+                        </p>
+
+                        <p className='small text-white-300 text-end'>
+                            Design & Code : @Firzus
+                        </p>
+                    </div>
+
+                    <div className='w-bar' />
+
+                    <div className='flex items-center justify-between'>
+                        <Link href={linkYoutube} target='_blank'>
+                            <Image
+                                src={IconYoutube}
+                                alt='Lien Chaîne Youtube Nozadah'
+                                width={24}
+                                height={24}
+                            />
+                        </Link>
+
+                        <Link href={linkTwitch} target='_blank'>
+                            <Image
+                                src={IconTwitch}
+                                alt='Lien Chaîne Twitch Nozadah'
+                                width={24}
+                                height={24}
+                            />
+                        </Link>
+
+                        <Link href={linkTwitter} target='_blank'>
+                            <Image
+                                src={IconTwitter}
+                                alt='Lien Twitter Nozadah'
+                                width={24}
+                                height={24}
+                            />
+                        </Link>
+                    </div>
+                </footer>
+            </section>
         </main>
     )
 }

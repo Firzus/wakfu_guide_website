@@ -8,13 +8,6 @@ body {
     @apply flex flex-col bg-black-800 min-h-screen;
 }
 
-.side-bar-pos{
-    height:calc(100% - 3rem);
-    position: absolute;
-    top: 3rem;
-    right: 0;
-}
-
 .side-shadow{
     box-shadow: -4px 0px 10px 0px rgba(0, 0, 0, 0.20)
 }
