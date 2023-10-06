@@ -10,13 +10,6 @@ body {
     @apply flex flex-col bg-black-800 min-h-screen;
 }
 
-.side-bar-pos{
-    height:calc(100% - 3rem);
-    position: absolute;
-    top: 3rem;
-    right: 0;
-}
-
 .side-shadow{
     box-shadow: -4px 0px 10px 0px rgba(0, 0, 0, 0.20)
 }
@@ -54,11 +47,7 @@ body {
 /* Element */
 
 .w-bar{
-    @apply w-full h-[0.0625rem] bg-white-100 opacity-20
-}
-
-.active-page{
-    @apply w-1 h-full bg-red
+    @apply w-full h-[2px] bg-white-100/20
 }
 
 /* Gradient */

@@ -1,6 +1,8 @@
 import Link from 'next/link'
 import Image from 'next/image'
 
+import { usePathname } from 'next/navigation'
+
 // Data
 import IconYoutube from '@public/icons/youtube.svg'
 import IconTwitch from '@public/icons/twitch.svg'
@@ -8,19 +10,34 @@ import IconTwitter from '@public/icons/twitter.svg'
 import IconHome from '@public/icons/home.svg'
 import IconGuide from '@public/icons/guide.svg'
 import IconDonjon from '@public/icons/donjon.svg'
-import IconStuff from '@public/icons/stuff.svg'
+import IconEquipement from '@public/icons/stuff.svg'
 
 const SideBar = ({ navbarRef, handleNavLinkClick }) => {
-    return (
-        <main ref={navbarRef} className='side-bar-pos w-64 bg-black-700 flex flex-col justify-between side-shadow'>
-            <header className='flex flex-col items-center gap-8 pt-8'>
-                <p className='subtitle_1'>
-                    Wakfu Guide
-                </p>
+    const linkTwitter = "https://twitter.com/Nozadah";
+    const linkTwitch = "https://www.twitch.tv/nozadah";
+    const linkYoutube = "https://www.youtube.com/@Nozadah";
 
-                <nav onClick={handleNavLinkClick} className='w-full flex flex-col'>
-                    <Link href="/" className='flex items-center justify-end gap-10 py-4' >
-                        <div className='flex items-center gap-4'>
+    const linkAccueil = "/";
+    const linkGuides = "/guides"
+    const linkDonjons = "/donjons"
+    const linkEquipements = "/equipements"
+
+    const pathname = usePathname()
+
+    const isLinkActive = (path) => {
+        return path === pathname;
+    };
+
+    return (
+        <main className='2xl:hidden absolute w-full h-screen z-50 top-0 left-0 bg-black-900/75'>
+            <section ref={navbarRef} className='ml-auto w-64 h-full bg-black-700 flex flex-col justify-between side-shadow'>
+                <header className='flex flex-col items-center gap-8 pt-8'>
+                    <p className='subtitle_1'>
+                        Wakfu Guide
+                    </p>
+
+                    <nav onClick={handleNavLinkClick} className='w-full flex flex-col'>
+                        <Link href={linkAccueil} className='flex items-center justify-end gap-4 py-4 mr-8' >
                             <p className='navigation'>
                                 accueil
                             </p>
@@ -31,13 +48,11 @@ const SideBar = ({ navbarRef, handleNavLinkClick }) => {
                                 width={16}
                                 height={16}
                             />
-                        </div>
 
-                        <hr className='active-page' />
-                    </Link>
+                            {isLinkActive(linkAccueil) && <div className='absolute right-0 w-1 h-4 bg-red' />}
+                        </Link>
 
-                    <Link href="/guides" className='flex items-center justify-end gap-10 py-4'>
-                        <div className='flex items-center gap-4'>
+                        <Link href={linkGuides} className='flex items-center justify-end gap-4 py-4 mr-8'>
                             <p className='navigation'>
                                 guides
                             </p>
@@ -48,13 +63,11 @@ const SideBar = ({ navbarRef, handleNavLinkClick }) => {
                                 width={16}
                                 height={16}
                             />
-                        </div>
 
-                        <hr className='active-page' />
-                    </Link>
+                            {isLinkActive(linkGuides) && <div className='absolute right-0 w-1 h-4 bg-red' />}
+                        </Link>
 
-                    <Link href="/donjons" className='flex items-center justify-end gap-10 py-4'>
-                        <div className='flex items-center gap-4'>
+                        <Link href={linkDonjons} className='flex items-center justify-end gap-4 py-4 mr-8'>
                             <p className='navigation'>
                                 donjons
                             </p>
@@ -65,69 +78,70 @@ const SideBar = ({ navbarRef, handleNavLinkClick }) => {
                                 width={16}
                                 height={16}
                             />
-                        </div>
 
-                        <hr className='active-page' />
-                    </Link>
+                            {isLinkActive(linkDonjons) && <div className='absolute right-0 w-1 h-4 bg-red' />}
+                        </Link>
 
-                    <Link href="/stuffs" className='flex items-center justify-end gap-10 py-4'>
-                        <div className='flex items-center gap-4'>
+                        <Link href={linkEquipements} className='flex items-center justify-end gap-4 py-4 mr-8'>
                             <p className='navigation'>
                                 équipements
                             </p>
 
                             <Image
-                                src={IconStuff}
+                                src={IconEquipement}
                                 alt='Icone Equipements'
                                 width={16}
                                 height={16}
                             />
-                        </div>
 
-                        <div className='active-page' />
-                    </Link>
-                </nav>
-            </header>
+                            {isLinkActive(linkEquipements) && <div className='absolute right-0 w-1 h-4 bg-red' />}
+                        </Link>
+                    </nav>
+                </header>
 
-            <footer className='flex flex-col gap-4 px-8 py-4'>
-                <div className='flex flex-col gap-2 content-end'>
-                    <p className='small text-white-300 text-end'>
-                        Content : @Nozadah
-                    </p>
-                    <p className='small text-white-300 text-end'>
-                        Design & Code : @Firzus
-                    </p>
-                </div>
+                <footer className='flex flex-col gap-4 px-8 py-4'>
+                    <div className='flex flex-col gap-2 content-end'>
+                        <p className='small text-white-300 text-end'>
+                            Content : @Nozadah
+                        </p>
 
-                <div className='w-bar' />
+                        <p className='small text-white-300 text-end'>
+                            Design & Code : @Firzus
+                        </p>
+                    </div>
 
-                <div className='flex items-center justify-between'>
-                    <Link href="https://youtube.com/@Nozadah?si=0zH3JNQ-b6juCCiG">
-                        <Image
-                            src={IconYoutube}
-                            alt='Lien Chaîne Youtube Nozadah'
-                            width={24}
-                            height={24}
-                        />
-                    </Link>
-                    <Link href="https://www.twitch.tv/nozadah">
-                        <Image
-                            src={IconTwitch}
-                            alt='Lien Chaîne Twitch Nozadah'
-                            width={24}
-                            height={24}
-                        />
-                    </Link>
-                    <Link href="https://twitter.com/Nozadah">
-                        <Image
-                            src={IconTwitter}
-                            alt='Lien Twitter Nozadah'
-                            width={24}
-                            height={24}
-                        />
-                    </Link>
-                </div>
-            </footer>
+                    <div className='w-bar' />
+
+                    <div className='flex items-center justify-between'>
+                        <Link href={linkYoutube} target='_blank'>
+                            <Image
+                                src={IconYoutube}
+                                alt='Lien Chaîne Youtube Nozadah'
+                                width={24}
+                                height={24}
+                            />
+                        </Link>
+
+                        <Link href={linkTwitch} target='_blank'>
+                            <Image
+                                src={IconTwitch}
+                                alt='Lien Chaîne Twitch Nozadah'
+                                width={24}
+                                height={24}
+                            />
+                        </Link>
+
+                        <Link href={linkTwitter} target='_blank'>
+                            <Image
+                                src={IconTwitter}
+                                alt='Lien Twitter Nozadah'
+                                width={24}
+                                height={24}
+                            />
+                        </Link>
+                    </div>
+                </footer>
+            </section>
         </main>
     )
 }
