@@ -120,7 +120,6 @@ const Navigation = () => {
             </ul>
 
             {isNavOpen && <SideBar navbarRef={navbarRef} handleNavLinkClick={() => { setNavOpen(false) }} />}
-
         </main>
     )
 }
