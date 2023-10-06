@@ -29,7 +29,7 @@ const SideBar = ({ navbarRef, handleNavLinkClick }) => {
     };
 
     return (
-        <main className='absolute w-full h-screen z-50 top-0 left-0 bg-black-900/75'>
+        <main className='2xl:hidden absolute w-full h-screen z-50 top-0 left-0 bg-black-900/75'>
             <section ref={navbarRef} className='ml-auto w-64 h-full bg-black-700 flex flex-col justify-between side-shadow'>
                 <header className='flex flex-col items-center gap-8 pt-8'>
                     <p className='subtitle_1'>
