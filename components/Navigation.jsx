@@ -119,16 +119,7 @@ const Navigation = () => {
                 </Link>
             </ul>
 
-            {isNavOpen &&
-                <>
-                    <div className='side-bar-pos bg-black-900 w-full opacity-60' />
-
-                    <SideBar
-                        navbarRef={navbarRef}
-                        handleNavLinkClick={() => { setNavOpen(false) }}
-                    />
-                </>
-            }
+            {isNavOpen && <SideBar navbarRef={navbarRef} handleNavLinkClick={() => { setNavOpen(false) }} />}
 
         </main>
     )
