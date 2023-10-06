@@ -3,7 +3,9 @@ import React from 'react'
 
 const Donjons = () => {
     return (
-        <Loader />
+        <div>
+            donjons
+        </div>
     )
 }
 
