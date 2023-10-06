@@ -1,6 +1,8 @@
 import Link from 'next/link'
 import Image from 'next/image'
 
+import { usePathname } from 'next/navigation'
+
 // Data
 import IconYoutube from '@public/icons/youtube.svg'
 import IconTwitch from '@public/icons/twitch.svg'
@@ -14,6 +16,12 @@ const SideBar = ({ navbarRef, handleNavLinkClick }) => {
     const linkTwitter = "https://twitter.com/Nozadah";
     const linkTwitch = "https://www.twitch.tv/nozadah";
     const linkYoutube = "https://www.youtube.com/@Nozadah";
+
+    const pathname = usePathname()
+
+    const isLinkActive = (path) => {
+        return path === pathname;
+    };
 
     return (
         <main className='absolute w-full h-screen z-50 top-0 left-0 bg-black-900/75'>
@@ -38,7 +46,7 @@ const SideBar = ({ navbarRef, handleNavLinkClick }) => {
                                 />
                             </div>
 
-                            <hr className='active-page' />
+                            {isLinkActive("/") && <div className='w-1 h-full bg-red' />}
                         </Link>
 
                         <Link href="/guides" className='flex items-center justify-end gap-10 py-4'>
@@ -55,7 +63,7 @@ const SideBar = ({ navbarRef, handleNavLinkClick }) => {
                                 />
                             </div>
 
-                            <hr className='active-page' />
+                            {isLinkActive("/guides") && <div className='' />}
                         </Link>
 
                         <Link href="/donjons" className='flex items-center justify-end gap-10 py-4'>
@@ -72,7 +80,7 @@ const SideBar = ({ navbarRef, handleNavLinkClick }) => {
                                 />
                             </div>
 
-                            <hr className='active-page' />
+                            {isLinkActive("/donjons") && <div className='active-page' />}
                         </Link>
 
                         <Link href="/stuffs" className='flex items-center justify-end gap-10 py-4'>
@@ -89,7 +97,7 @@ const SideBar = ({ navbarRef, handleNavLinkClick }) => {
                                 />
                             </div>
 
-                            <div className='active-page' />
+                            {isLinkActive("/stuffs") && <div className='active-page' />}
                         </Link>
                     </nav>
                 </header>
@@ -105,7 +113,7 @@ const SideBar = ({ navbarRef, handleNavLinkClick }) => {
                         </p>
                     </div>
 
-                    <div className='w-bar' />
+                    <hr className='w-bar' />
 
                     <div className='flex items-center justify-between'>
                         <Link href={linkYoutube} target='_blank'>

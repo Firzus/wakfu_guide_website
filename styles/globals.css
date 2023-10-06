@@ -48,10 +48,6 @@ body {
     @apply w-full h-[0.0625rem] bg-white-100 opacity-20
 }
 
-.active-page{
-    @apply w-1 h-full bg-red
-}
-
 /* Gradient */
 
 .gradient{
