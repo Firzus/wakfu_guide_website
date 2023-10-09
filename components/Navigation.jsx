@@ -45,16 +45,16 @@ const Navigation = () => {
     };
 
     return (
-        <main className='flex justify-between items-center bg-black-900'>
+        <header className='flex justify-between items-center bg-black-900'>
             <Link href={linkHome}>
                 <Image
-                    className='mx-2 2xl:mx-6 w-8 2xl:w-12 h-12 2xl:h-20'
+                    className='mx-2 laptop:mx-6 w-8 laptop:w-12 h-12 laptop:h-20'
                     src={Logo}
                     alt='Wakfu Guide Logo'
                 />
             </Link>
 
-            <li className='hidden 2xl:flex ml-24 mr-auto gap-12'>
+            <li className='hidden laptop:flex ml-24 mr-auto gap-12'>
                 <Link href={linkHome} className='relative base uppercase text-white-200'>
                     <p>accueil</p>
 
@@ -82,7 +82,7 @@ const Navigation = () => {
 
             <div
                 onClick={() => { setNavOpen(!isNavOpen) }}
-                className='flex 2xl:hidden w-12 h-12'
+                className='flex laptop:hidden w-12 h-12'
             >
                 <Image
                     className='mx-auto'
@@ -93,7 +93,7 @@ const Navigation = () => {
                 />
             </div>
 
-            <ul className='hidden 2xl:flex gap-8 pr-6'>
+            <ul className='hidden laptop:flex gap-8 pr-6'>
                 <Link href={linkTwitter} target="_blank" className='hover:scale-125 transition duration-300 ease-in-out'>
                     <Image
                         className='w-8 h-8'
@@ -120,7 +120,7 @@ const Navigation = () => {
             </ul>
 
             {isNavOpen && <SideBar navbarRef={navbarRef} handleNavLinkClick={() => { setNavOpen(false) }} />}
-        </main>
+        </header>
     )
 }
 

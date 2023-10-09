@@ -4,44 +4,8 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Default */
-
-body {
-    @apply flex flex-col bg-black-800 min-h-screen;
-}
-
 .side-shadow{
     box-shadow: -4px 0px 10px 0px rgba(0, 0, 0, 0.20)
-}
-
-/* Font */
-
-.title {
-    @apply text-2xl text-white-100 font-bold capitalize
-}
-
-.subtitle_1 {
-    @apply text-xl text-white-100 font-semibold capitalize
-}
-
-.subtitle_2 {
-    @apply text-lg text-white-100 font-semibold capitalize
-}
-
-.base{
-    @apply text-base
-}
-
-.small{
-    @apply text-sm font-light
-}
-
-.extra_small{
-    @apply text-xs font-light
-}
-
-.navigation {
-    @apply text-white-200 uppercase
 }
 
 /* Element */

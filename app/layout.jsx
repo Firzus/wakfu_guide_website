@@ -11,10 +11,14 @@ export const metadata = {
 const RootLayout = ({ children }) => {
   return (
     <html lang='fr'>
-      <body>
+      <body className='flex flex-col bg-black-800 min-h-screen'>
         <Navigation />
-        <main className='container mx-auto px-3 tablet:px-8 laptop:px-0 laptop:w-[1140px] desktop:w-[1440px] laptop:bg-red desktop:bg-green'>
-          {children}
+        <main className='flex flex-col grow container mx-auto px-3'>
+          {/* {children} */}
+
+          {/* Test value */}
+          <div className='w-full grow bg-green' />
+
           <Footer />
         </main>
       </body>
