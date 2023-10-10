@@ -1,11 +1,16 @@
 const Footer = () => {
     return (
-        <footer className="py-1 laptop:py-4">
-            <p className="extra_small text-center text-white-300">
-                ©2023 WakfuGuide. Certaines illustrations sont la propriété d’Ankama Studio - Tous droits réservés.
+        <footer className="text-center text-xs text-white-300 font-light">
+            <p>
+                Certaines images sont la propriété d’Ankama Studio.{' '}
+                <span className="hidden md:inline">©2023 WakfuGuide.</span>
+                <span className="md:hidden">
+                    <br />
+                    ©2023 WakfuGuide.
+                </span>
             </p>
         </footer>
-    )
-}
+    );
+};
 
-export default Footer
+export default Footer;

@@ -10,11 +10,14 @@ module.exports = {
       'sans': ['Poppins', 'Helvetica', 'Arial', 'sans-serif'],
     },
     fontSize: {
+      xs: '0.75rem',
+      sm: '0.875rem',
+      base: '1rem',
       lg: '1.25rem',
       xl: '1.5rem',
-      '2xl': '1.875rem',
-      '3xl': '2.25rem',
-      '4xl': '3rem',
+      '2xl': '1.875rem', // Subtitle Phone
+      '3xl': '2.25rem',  // Subtitle Desktop - Title Phone
+      '4xl': '3rem',     // Title Desktop
     },
     colors: {
       transparent: 'transparent',

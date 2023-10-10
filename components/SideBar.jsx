@@ -32,13 +32,13 @@ const SideBar = ({ navbarRef, handleNavLinkClick }) => {
         <main className='2xl:hidden absolute w-full h-screen z-50 top-0 left-0 bg-black-900/75'>
             <section ref={navbarRef} className='ml-auto w-64 h-full bg-black-700 flex flex-col justify-between side-shadow'>
                 <header className='flex flex-col items-center gap-8 pt-8'>
-                    <p className='subtitle_1'>
+                    <p className='text-2xl text-white-100 font-bold'>
                         Wakfu Guide
                     </p>
 
                     <nav onClick={handleNavLinkClick} className='w-full flex flex-col'>
                         <Link href={linkAccueil} className='flex items-center justify-end gap-4 py-4 mr-8' >
-                            <p className='navigation'>
+                            <p className='text-white-200 uppercase tracking-wider'>
                                 accueil
                             </p>
 
@@ -53,7 +53,7 @@ const SideBar = ({ navbarRef, handleNavLinkClick }) => {
                         </Link>
 
                         <Link href={linkGuides} className='flex items-center justify-end gap-4 py-4 mr-8'>
-                            <p className='navigation'>
+                            <p className='text-white-200 uppercase tracking-wider'>
                                 guides
                             </p>
 
@@ -68,7 +68,7 @@ const SideBar = ({ navbarRef, handleNavLinkClick }) => {
                         </Link>
 
                         <Link href={linkDonjons} className='flex items-center justify-end gap-4 py-4 mr-8'>
-                            <p className='navigation'>
+                            <p className='text-white-200 uppercase tracking-wider'>
                                 donjons
                             </p>
 
@@ -83,7 +83,7 @@ const SideBar = ({ navbarRef, handleNavLinkClick }) => {
                         </Link>
 
                         <Link href={linkEquipements} className='flex items-center justify-end gap-4 py-4 mr-8'>
-                            <p className='navigation'>
+                            <p className='text-white-200 uppercase tracking-wider'>
                                 équipements
                             </p>
 
@@ -101,11 +101,11 @@ const SideBar = ({ navbarRef, handleNavLinkClick }) => {
 
                 <footer className='flex flex-col gap-4 px-8 py-4'>
                     <div className='flex flex-col gap-2 content-end'>
-                        <p className='small text-white-300 text-end'>
+                        <p className='text-xs text-white-300 text-end font-light'>
                             Content : @Nozadah
                         </p>
 
-                        <p className='small text-white-300 text-end'>
+                        <p className='text-xs text-white-300 text-end font-light'>
                             Design & Code : @Firzus
                         </p>
                     </div>

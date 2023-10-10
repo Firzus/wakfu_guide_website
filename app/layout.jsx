@@ -13,11 +13,10 @@ const RootLayout = ({ children }) => {
     <html lang='fr'>
       <body className='flex flex-col bg-black-800 min-h-screen'>
         <Navigation />
-        <main className='flex flex-col grow container mx-auto px-3'>
-          {/* {children} */}
 
-          {/* Test value */}
-          <div className='w-full grow bg-green' />
+        <main className='flex flex-col grow container mx-auto px-3 pb-4 pt-8'>
+
+          {children}
 
           <Footer />
         </main>

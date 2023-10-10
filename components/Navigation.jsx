@@ -48,32 +48,32 @@ const Navigation = () => {
         <header className='flex justify-between items-center bg-black-900'>
             <Link href={linkHome}>
                 <Image
-                    className='mx-2 laptop:mx-6 w-8 laptop:w-12 h-12 laptop:h-20'
+                    className='mx-2 w-8 h-12 lg:mx-6 lg:w-12 lg:h-20'
                     src={Logo}
                     alt='Wakfu Guide Logo'
                 />
             </Link>
 
-            <li className='hidden laptop:flex ml-24 mr-auto gap-12'>
-                <Link href={linkHome} className='relative base uppercase text-white-200'>
+            <li className='hidden ml-24 mr-auto gap-12 lg:flex'>
+                <Link href={linkHome} className='relative uppercase text-white-200'>
                     <p>accueil</p>
 
                     {isLinkActive(linkHome) && <span className='block h-1 mt-1 bg-red' />}
                 </Link>
 
-                <Link href={linkGuides} className='relative base uppercase text-white-200'>
+                <Link href={linkGuides} className='relative uppercase text-white-200'>
                     <p>guides</p>
 
                     {isLinkActive(linkGuides) && <span className='block h-1 mt-1 bg-red' />}
                 </Link>
 
-                <Link href={linkDonjons} className='relative base uppercase text-white-200'>
+                <Link href={linkDonjons} className='relative uppercase text-white-200'>
                     <p>donjons</p>
 
                     {isLinkActive(linkDonjons) && <span className='block h-1 mt-1 bg-red' />}
                 </Link>
 
-                <Link href={linkEquipements} className='relative base uppercase text-white-200'>
+                <Link href={linkEquipements} className='relative uppercase text-white-200'>
                     <p>équipements</p>
 
                     {isLinkActive(linkEquipements) && <span className='block h-1 mt-1 bg-red' />}
@@ -82,7 +82,7 @@ const Navigation = () => {
 
             <div
                 onClick={() => { setNavOpen(!isNavOpen) }}
-                className='flex laptop:hidden w-12 h-12'
+                className='flex lg:hidden w-12 h-12'
             >
                 <Image
                     className='mx-auto'
@@ -93,7 +93,7 @@ const Navigation = () => {
                 />
             </div>
 
-            <ul className='hidden laptop:flex gap-8 pr-6'>
+            <ul className='hidden lg:flex gap-8 pr-6'>
                 <Link href={linkTwitter} target="_blank" className='hover:scale-125 transition duration-300 ease-in-out'>
                     <Image
                         className='w-8 h-8'
