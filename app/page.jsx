@@ -12,7 +12,7 @@ const Home = () => {
   const linkDiscoverdWakfu = "https://youtu.be/MOnP3z6TsPw?si=6GAJ1RvrxFpw4rtX";
 
   return (
-    <section className="grow flex flex-col justify-between gap-4 pb-4">
+    <section className="grow flex flex-col justify-between gap-4">
       <div className="flex flex-col gap-4">
         <header className="flex flex-col gap-2">
           <h1 className="text-3xl text-white-100 capitalize font-bold">
@@ -40,7 +40,6 @@ const Home = () => {
           fill
         />
       </div>
-
     </section>
   )
 }
