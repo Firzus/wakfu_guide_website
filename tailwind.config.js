@@ -6,21 +6,18 @@ module.exports = {
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    screens: {
-      'tablet': '640px',
-      'laptop': '1024px',
-      'desktop': '1280px'
-    },
     fontFamily: {
       'sans': ['Poppins', 'Helvetica', 'Arial', 'sans-serif'],
     },
     fontSize: {
-      xs: ['0.75rem', '0.9rem '],
-      sm: ['0.875rem', '1.05rem'],
-      base: ['1rem', '1.2rem'],
-      lg: ['1.25rem', '1.5rem'],
-      xl: ['1.5rem', '1.8rem'],
-      '2xl': ['2.25rem', '2.7rem'],
+      xs: '0.75rem',
+      sm: '0.875rem',
+      base: '1rem',
+      lg: '1.25rem',
+      xl: '1.5rem',
+      '2xl': '1.875rem', // Subtitle Phone
+      '3xl': '2.25rem',  // Subtitle Desktop - Title Phone
+      '4xl': '3rem',     // Title Desktop
     },
     colors: {
       transparent: 'transparent',

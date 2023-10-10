@@ -12,14 +12,14 @@ const Home = () => {
   const linkDiscoverdWakfu = "https://youtu.be/MOnP3z6TsPw?si=6GAJ1RvrxFpw4rtX";
 
   return (
-    <main className="pt-8 grow flex flex-col justify-between gap-4">
+    <section className="grow flex flex-col justify-between gap-4">
       <div className="flex flex-col gap-4">
-        <header className="flex flex-col gap-2 w-">
-          <h1 className="title">
-            Wakfu Guide
+        <header className="flex flex-col gap-2">
+          <h1 className="text-3xl text-white-100 capitalize font-bold">
+            wakfu guide
           </h1>
 
-          <p className="small text-white-300">
+          <p className="text-sm text-white-300 w-3/4">
             La référence en tutoriels, astuces et guides sur Wakfu et sa commauté.
           </p>
         </header>
@@ -28,19 +28,19 @@ const Home = () => {
           <Button
             label="découvrir"
             color="gradient"
-            size="sm"
           />
         </Link>
       </div>
 
-      <Image
-        src={Illustration}
-        alt="Illustration"
-        width={273}
-        height={324}
-        className="ml-auto"
-      />
-    </main>
+      <div className="w-3/4 grow relative ml-auto">
+        <Image
+          className="object-contain"
+          src={Illustration}
+          alt="Illustration"
+          fill
+        />
+      </div>
+    </section>
   )
 }
 
