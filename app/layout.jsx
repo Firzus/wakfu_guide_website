@@ -2,6 +2,7 @@ import '@styles/globals.css'
 
 import Navigation from '@components/Navigation';
 import Footer from '@components/Footer';
+import Button from '@components/Button';
 
 export const metadata = {
   title: 'Wakfu Guide',
@@ -17,7 +18,9 @@ const RootLayout = ({ children }) => {
         <main className='flex grow container mx-auto pt-8 px-3 md:px-8 lg:max-w-[960px] xl:max-w-[1140px] 2xl:max-w-[1440px]'>
           {/* {children} */}
 
-          <div className='grow bg-green'></div>
+          <div className='grow'>
+            ok
+          </div>
         </main>
 
         <Footer />
