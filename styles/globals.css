@@ -4,51 +4,61 @@
 @tailwind components;
 @tailwind utilities;
 
-.side-shadow{
-    box-shadow: -4px 0px 10px 0px rgba(0, 0, 0, 0.20)
+@layer base{
+    .bg-gradient{
+        @apply bg-gradient-to-r from-red to-green
+    }
 }
 
-/* Element */
+@layer components {
+    .loader {
+        @apply relative w-[78px] h-[78px] overflow-hidden rounded-[50%] border-8 border-solid border-black-700 after:content-[''] after:absolute after:w-full after:h-full after:z-[5] after:box-border after:animate-[eyeShade_3s_infinite] after:border-b-8 after:border-b-black-900 after:border-solid after:left-0 after:-top-2/4 before:content-[''] before:absolute before:w-8 before:z-[2] before:h-8 before:animate-[eyeMove_3s_infinite] before:rounded-[50%] before:left-5 before:bottom-[15px];
+        @apply bg-gradient
+    }
+    
+    .loader::after {
+        @apply bg-black-800
+    }
+    
+    .loader::before {
+        @apply bg-black-800
+    }
+    
+    @keyframes eyeShade {
+        0%   { transform: translateY(0)}
+        20%   { transform: translateY(5px)}
+        40% , 50%   { transform: translateY(-5px)}
+        60%   { transform: translateY( -8px)}
+        75%   { transform: translateY( 5px)}
+        100%   { transform: translateY(10px)}
+    }
+    
+    @keyframes eyeMove {
+        0%   { transform: translate(0 , 0)}
+        20%   { transform: translate(0px , 5px)}
+        40% , 50%   { transform: translate(0px , -5px)}
+        60%   { transform: translate(-10px , -5px)}
+        75%   { transform: translate(-20px , 5px)}
+        100%   { transform: translate(0 , 10px)}
+    }
 
-.w-bar{
-    @apply w-full h-[2px] bg-white-100/20
+    .side-shadow{
+        box-shadow: -4px 0px 10px 0px rgba(0, 0, 0, 0.20)
+    }
+
+    .w-bar{
+        @apply w-full h-[2px] bg-white-100/20
+    }
 }
 
-/* Gradient */
+@layer utilities {
+    .no-scrollbar::-webkit-scrollbar {
+        display: none;
+    }
 
-.bg-gradient{
-    @apply bg-gradient-to-r from-red to-green
-}
-
-/* Loader - need to refactor */
-
-.loader {
-    @apply relative w-[78px] h-[78px] overflow-hidden rounded-[50%] border-8 border-solid border-black-700 after:content-[''] after:absolute after:w-full after:h-full after:z-[5] after:box-border after:animate-[eyeShade_3s_infinite] after:border-b-8 after:border-b-black-900 after:border-solid after:left-0 after:-top-2/4 before:content-[''] before:absolute before:w-8 before:z-[2] before:h-8 before:animate-[eyeMove_3s_infinite] before:rounded-[50%] before:left-5 before:bottom-[15px];
-    @apply bg-red
-}
-
-.loader::after {
-    @apply bg-black-800
-}
-
-.loader::before {
-    @apply bg-black-800
-}
-
-@keyframes eyeShade {
-    0%   { transform: translateY(0)}
-    20%   { transform: translateY(5px)}
-    40% , 50%   { transform: translateY(-5px)}
-    60%   { transform: translateY( -8px)}
-    75%   { transform: translateY( 5px)}
-    100%   { transform: translateY(10px)}
-}
-
-@keyframes eyeMove {
-    0%   { transform: translate(0 , 0)}
-    20%   { transform: translate(0px , 5px)}
-    40% , 50%   { transform: translate(0px , -5px)}
-    60%   { transform: translate(-10px , -5px)}
-    75%   { transform: translate(-20px , 5px)}
-    100%   { transform: translate(0 , 10px)}
+    /* Hide scrollbar for IE, Edge and Firefox */
+    .no-scrollbar {
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+    }
 }
