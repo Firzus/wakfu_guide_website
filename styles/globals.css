@@ -5,9 +5,7 @@
 @tailwind utilities;
 
 @layer base{
-    .bg-gradient{
-        @apply bg-gradient-to-r from-red to-green
-    }
+
 }
 
 @layer components {
@@ -52,6 +50,10 @@
 }
 
 @layer utilities {
+    .bg-gradient{
+        @apply bg-gradient-to-r from-red to-green
+    }
+
     .no-scrollbar::-webkit-scrollbar {
         display: none;
     }
