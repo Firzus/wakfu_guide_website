@@ -4,7 +4,8 @@ import Navigation from '@components/Navigation';
 import Footer from '@components/Footer';
 
 // TEST
-import CardEquipement from '@components/cards/CardEquipement';
+import CardGuide from '@components/cards/CardGuide';
+import Link from 'next/link';
 
 export const metadata = {
   title: 'Wakfu Guide',
@@ -21,13 +22,13 @@ const RootLayout = ({ children }) => {
           {/* {children} */}
 
           {/* TEST */}
-          <section className='grid gap-4 md:grid-cols-2'>
-            <CardEquipement />
-            <CardEquipement />
-            <CardEquipement />
-            <CardEquipement />
-            <CardEquipement />
-            <CardEquipement />
+          <section className='grid gap-4 grid-cols-1 md:grid-cols-2 xl:grid-cols-3'>
+            <CardGuide />
+            <CardGuide />
+            <CardGuide />
+            <CardGuide />
+            <CardGuide />
+            <CardGuide />
           </section>
         </main>
 
