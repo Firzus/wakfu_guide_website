@@ -11,7 +11,7 @@ const Button = ({
 }
 
 Button.defaultProps = {
-    label: 'Default Label',
+    label: 'default label',
     color: 'red'
 }
 
