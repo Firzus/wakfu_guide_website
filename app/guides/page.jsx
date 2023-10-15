@@ -1,9 +1,12 @@
-import React from 'react'
+import Breadcrumb from '@components/Breadcrumb'
 
 const Guides = () => {
     return (
         <section>
-            Guides
+            <Breadcrumb />
+            <p>
+                Guides Page
+            </p>
         </section>
     )
 }

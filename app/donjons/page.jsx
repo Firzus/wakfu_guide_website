@@ -1,11 +1,13 @@
-import Loader from '@components/Loader'
-import React from 'react'
+import Breadcrumb from '@components/Breadcrumb'
 
 const Donjons = () => {
     return (
         <div>
-            donjons
-        </div>
+            <Breadcrumb />
+            <p>
+                Donjons Page
+            </p>
+        </div >
     )
 }
 

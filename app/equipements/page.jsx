@@ -1,8 +1,13 @@
-import React from 'react'
+import Breadcrumb from '@components/Breadcrumb'
 
 const Equipements = () => {
     return (
-        <div>Equipements</div>
+        <div>
+            <Breadcrumb />
+            <p>
+                Equipements Page
+            </p>
+        </div >
     )
 }
 
