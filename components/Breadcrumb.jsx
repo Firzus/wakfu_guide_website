@@ -14,7 +14,7 @@ const Breadcrumb = () => {
                 </p>
 
                 <svg className='w-4 h-4 stroke-white-300' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
-                    <path d="M6.66663 4.66667L9.99996 8L6.66663 11.3333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M6.66663 4.66667L9.99996 8L6.66663 11.3333" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
             </li>
 
@@ -22,7 +22,7 @@ const Breadcrumb = () => {
                 <li key={index}>
                     {index > 0 &&
                         <svg className='w-4 h-4 stroke-white-300' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
-                            <path d="M6.66663 4.66667L9.99996 8L6.66663 11.3333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M6.66663 4.66667L9.99996 8L6.66663 11.3333" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                         </svg>
                     }
 

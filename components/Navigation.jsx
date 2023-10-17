@@ -76,7 +76,7 @@ const Navigation = () => {
                 className='flex lg:hidden w-12 h-12 md:w-20 md:h-20'
             >
                 <svg className='m-auto w-8 h-8 md:w-14 md:h-14 stroke-white-300' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-                    <path d="M5 8H27M5 16H27M5 24H27" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M5 8H27M5 16H27M5 24H27" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
             </div>
 

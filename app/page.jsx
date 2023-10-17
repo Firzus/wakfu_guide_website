@@ -36,6 +36,7 @@ const Home = () => {
           className="object-contain"
           src={Illustration}
           alt="Illustration"
+          sizes="(max-width: 640px) 100vw, (max-width: 767px) 80vw, 90vw"
           fill
         />
       </picture>
