@@ -1,60 +1,109 @@
 import Image from 'next/image'
 import Link from 'next/link'
 
+import Markdown from 'markdown-to-jsx'
+
 // Assets
 import DefaultTopEquipment from '@public/images/defaultTopEquipment.png'
 import DefaultBotEquipment from '@public/images/defaultBotEquipment.png'
-import DefaultClasse from '@public/images/defaultClasse.png'
+
+import AllClass from '@public/images/classes/allClass.png'
+import ClasseFeca from '@public/images/classes/feca.jpg'
+import ClasseOsamodas from '@public/images/classes/osamodas.jpg'
+import ClasseEnutrof from '@public/images/classes/enutrof.jpg'
+import ClasseSram from '@public/images/classes/sram.jpg'
+import ClasseXelor from '@public/images/classes/xelor.jpg'
+import ClasseEcaflip from '@public/images/classes/ecaflip.jpg'
+import ClasseEniripsa from '@public/images/classes/eniripsa.jpg'
+import ClasseIop from '@public/images/classes/iop.jpg'
+import ClasseCra from '@public/images/classes/cra.jpg'
+import ClasseSadida from '@public/images/classes/sadida.jpg'
+import ClasseSacrieur from '@public/images/classes/sacrieur.jpg'
+import ClassePandawa from '@public/images/classes/pandawa.jpg'
+import ClasseRoublard from '@public/images/classes/roublard.jpg'
+import ClasseZobal from '@public/images/classes/zobal.jpg'
+import ClasseOuginak from '@public/images/classes/ouginak.jpg'
+import ClasseSteamer from '@public/images/classes/steamer.jpg'
+import ClasseEliotrope from '@public/images/classes/eliotrope.jpg'
+import ClasseHuppermage from '@public/images/classes/huppermage.jpg'
 
 const CardEquipement = ({
     name,
     tags = [],
-    description,
     equipmentTop,
     equipmentBot,
-    classes = [],
+    description,
+    classes,
     lien,
 }) => {
+    const urlAPI = "https://wakfu-guide-api-cckfj.ondigitalocean.app"
+    const tagArray = tags.split(", ").map(tag => tag.trim());
+    const classImages = {
+        toutes: AllClass,
+        feca: ClasseFeca,
+        osamodas: ClasseOsamodas,
+        enutrof: ClasseEnutrof,
+        sram: ClasseSram,
+        xelor: ClasseXelor,
+        ecaflip: ClasseEcaflip,
+        eniripsa: ClasseEniripsa,
+        iop: ClasseIop,
+        cra: ClasseCra,
+        sadida: ClasseSadida,
+        sacrieur: ClasseSacrieur,
+        pandawa: ClassePandawa,
+        roublard: ClasseRoublard,
+        zobal: ClasseZobal,
+        ouginak: ClasseOuginak,
+        steamer: ClasseSteamer,
+        eliotrope: ClasseEliotrope,
+        huppermage: ClasseHuppermage
+    };
+
     return (
-        <section className="flex flex-col gap-4 py-4 bg-black-700 overflow-hidden rounded">
+        <section className="flex flex-col gap-4 py-4 bg-black-700 rounded break-inside-avoid">
             <header className="flex flex-col gap-2 pl-4">
                 <p className="text-white-100 capitalize">
                     {name}
                 </p>
 
-                <ul className="flex gap-1 items-center overflow-x-scroll no-scrollbar">
-                    {tags.map(tag => (
-                        <li key={tag} className='bg-black-900 whitespace-nowrap rounded-full px-2 py-1 text-xs uppercase text-white-300'>
+                <ul className="flex gap-1 items-center overflow-x-auto no-scrollbar">
+                    {tagArray.map((tag, index) => (
+                        <li key={index} className='bg-black-900 whitespace-nowrap rounded-full px-2 py-1 text-xs uppercase text-white-300'>
                             {tag}
                         </li>
                     ))}
                 </ul>
             </header>
 
-            <section className='px-4 text-sm text-white-300' dangerouslySetInnerHTML={{ __html: description }} />
-
             <section className="flex flex-col gap-1 px-4">
                 <Image
                     className='w-full'
-                    src={equipmentTop}
-                    alt=''
+                    src={urlAPI + equipmentTop.data.attributes.url}
+                    width={equipmentTop.data.attributes.width}
+                    height={equipmentTop.data.attributes.height}
+                    alt={equipmentTop.data.attributes.alternativeText == null && equipmentTop.data.attributes.name}
                 />
 
                 <Image
                     className='w-full'
-                    src={equipmentBot}
-                    alt=''
+                    src={urlAPI + equipmentBot.data.attributes.url}
+                    width={equipmentBot.data.attributes.width}
+                    height={equipmentBot.data.attributes.height}
+                    alt={equipmentBot.data.attributes.alternativeText == null && equipmentBot.data.attributes.name}
                 />
             </section>
 
+            <Markdown className='mx-4 pl-5 text-sm list-disc text-white-300'>{description}</Markdown>
+
             <footer className='px-4 flex justify-between gap-2'>
                 <ul className='flex'>
-                    {classes.map((classe, index) => (
+                    {classes.data.map((classe, index) => (
                         <li key={index} className={`inline-block ${index > 0 && `-ml-3`} z-${classes.length - index}`}>
                             <Image
                                 className='h-8 w-8 rounded-full'
-                                src={classe}
-                                alt=''
+                                src={classImages[classe.attributes.nom]}
+                                alt={'Classe : ' + classe.attributes.nom}
                             />
                         </li>
                     ))}
@@ -76,11 +125,11 @@ const CardEquipement = ({
 
 CardEquipement.defaultProps = {
     name: "default name",
-    tags: ['tag first', 'tag second', 'tag third', 'tag fourth', 'tag fifh', 'tag sixth'],
-    description: "<p>Voici un stuff <strong>vreuuuuuumant</strong> ... MDR.</p><p>Bon aller go retourner au travail.</p>",
+    tags: "tag first, tag second, tag third, tag fourth, tag fifh, tag sixth",
     equipmentTop: DefaultTopEquipment,
     equipmentBot: DefaultBotEquipment,
-    classes: [DefaultClasse, DefaultClasse, DefaultClasse],
+    description: "<p>Voici un stuff <strong>vreuuuuuumant</strong> ... MDR.</p><p>Bon aller go retourner au travail.</p>",
+    classes: { data: [{ attributes: { nom: "toutes" } }] },
     lien: 'https://www.zenithwakfu.com/builder',
 }
 
