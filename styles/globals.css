@@ -47,6 +47,18 @@
     .w-bar{
         @apply w-full h-[2px] bg-white-100/20
     }
+
+    .contenu-blog {
+        @apply flex flex-col gap-4
+    }
+
+    .contenu-blog h1{
+        @apply text-xl font-semibold text-white-100
+    }
+
+    .contenu-blog p{
+        @apply text-white-300
+    }
 }
 
 @layer utilities {
