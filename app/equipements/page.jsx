@@ -15,7 +15,7 @@ async function getEquipments() {
     return res.json()
 }
 
-export default async function Equipment() {
+export default async function Equipments() {
 
     const { data: equipments } = await getEquipments()
     // console.log(equipments);
@@ -38,17 +38,16 @@ export default async function Equipment() {
 
             <main className='space-y-4 columns-1 md:columns-2 xl:columns-3'>
                 {equipments.map((equipment, index) => (
-                    <React.Fragment key={index} >
-                        <CardEquipement
-                            name={equipment.attributes.nom}
-                            tags={equipment.attributes.tags}
-                            equipmentTop={equipment.attributes.haut}
-                            equipmentBot={equipment.attributes.bas}
-                            description={equipment.attributes.description}
-                            classes={equipment.attributes.classes}
-                            lien={equipment.attributes.lien}
-                        />
-                    </React.Fragment>
+                    <CardEquipement
+                        key={index}
+                        name={equipment.attributes.nom}
+                        tags={equipment.attributes.tags}
+                        equipmentTop={equipment.attributes.haut}
+                        equipmentBot={equipment.attributes.bas}
+                        description={equipment.attributes.description}
+                        classes={equipment.attributes.classes}
+                        lien={equipment.attributes.lien}
+                    />
                 ))}
             </main>
 

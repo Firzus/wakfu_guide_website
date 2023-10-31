@@ -29,7 +29,7 @@ import ClasseHuppermage from '@public/images/classes/huppermage.jpg'
 
 const CardEquipement = ({
     name,
-    tags = [],
+    tags,
     equipmentTop,
     equipmentBot,
     description,

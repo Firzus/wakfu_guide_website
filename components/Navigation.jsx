@@ -8,7 +8,7 @@ import { usePathname } from 'next/navigation'
 // Components
 import SideBar from '@components/SideBar';
 
-// Fonctions
+// Functions
 import useOutsideClick from '@utils/useOutsideClick'
 
 const Navigation = () => {

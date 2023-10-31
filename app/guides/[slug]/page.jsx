@@ -1,0 +1,35 @@
+// Component
+import Breadcrumb from "@components/Breadcrumb";
+
+export async function generateStaticParams() {
+    const guides = await fetch('https://wakfu-guide-api-cckfj.ondigitalocean.app/api/guides').then((res) => res.json())
+
+    return guides.data.map((guide) => ({
+        slug: guide.slug,
+    }))
+}
+
+async function getGuide(slug) {
+    const res = await fetch(`https://wakfu-guide-api-cckfj.ondigitalocean.app/api/guides?filters[slug]=${slug}`);
+    const data = await res.json();
+    return data.data[0];
+}
+
+export default async function Page({ params }) {
+    const guide = await getGuide(params.slug);
+
+    return (
+        <section className="w-full grow flex flex-col gap-4">
+            <Breadcrumb />
+
+            <h1 className="text-white-100">
+                {guide.attributes.titre}
+            </h1>
+
+            <p className="text-white-300">
+                {guide.attributes.description}
+            </p>
+
+        </section>
+    );
+}
