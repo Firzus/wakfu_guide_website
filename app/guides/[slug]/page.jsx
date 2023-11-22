@@ -18,15 +18,15 @@ async function getGuide(slug) {
     return data.data[0];
 }
 
-export default async function Page({ params }) {
+export default async function GuideId({ params }) {
     const guide = await getGuide(params.slug);
     const urlAPI = "https://wakfu-guide-api-cckfj.ondigitalocean.app"
 
     return (
-        <section className="w-full grow flex flex-col gap-4">
+        <section className="grow md:max-w-lg lg:max-w-3xl flex flex-col gap-4 mx-auto">
             <Breadcrumb />
 
-            <h1 className="text-white-100 text-xl font-semibold">
+            <h1 className="text-white-100 text-xl md:text-3xl font-bold">
                 {guide.attributes.titre}
             </h1>
 
